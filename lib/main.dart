@@ -11,12 +11,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => ProviderThemeMode(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-            //context.watch<ProviderThemeMode>().isDark ? Brightness.dark : Brightness.light
-        ),
-        home: MyHomePage(),
+      child: Consumer<ProviderThemeMode>(
+        builder: (context, providerTheme, child){
+          return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: providerTheme.isDark ? dark : light,
+              home: MyHomePage()
+          );
+        },
       ),
     );
   }

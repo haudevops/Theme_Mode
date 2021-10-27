@@ -3,6 +3,14 @@ import 'package:flutter/scheduler.dart';
 import 'package:provider_learning/until/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+ThemeData light = ThemeData(
+    brightness: Brightness.light,
+);
+
+ThemeData dark = ThemeData(
+  brightness: Brightness.dark,
+);
+
 class ProviderThemeMode extends ChangeNotifier{
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   bool _isDark;
